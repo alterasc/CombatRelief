@@ -13,3 +13,7 @@ How to install:
 1. Use Unity Mod Manager
 2. **Remove 1.2.1 version of Combat Relief if you have it**
 3. Install this one.
+
+## Credits
+
+BtB/streikeferret - original Combat Relief mod creator
