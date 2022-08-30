@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 using UnityModManagerNet;
 
-namespace TemplateProject
+namespace CombatReliefUpdated
 {
 #if DEBUG
     [EnableReloading]

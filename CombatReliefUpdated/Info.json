@@ -1,0 +1,14 @@
+﻿{
+  "AssemblyName": "CombatReliefUpdated.dll",
+  "Author": "AlterAsc",
+  "DisplayName": "CombatReliefUpdated",
+  "EntryMethod": "CombatReliefUpdated.Main.Load",
+  "GameVersion": "1.4.0",
+  "HomePage": "https://github.com/alterasc/CombatReliefUpdated/releases",
+  "Id": "CombatReliefUpdated",
+  "ManagerVersion": "0.23.0",
+  "Repository": "https://raw.githubusercontent.com/alterasc/CombatReliefUpdated/master/Repository.json",
+  "Requirements": [],
+  "LoadAfter": [],
+  "Version": "1.0.0"
+}
