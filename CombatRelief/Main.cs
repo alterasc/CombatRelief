@@ -13,7 +13,7 @@ namespace AlterAsc.CombatRelief
         private static bool Load(UnityModManager.ModEntry modEntry)
         {
             new Harmony(modEntry.Info.Id).PatchAll(Assembly.GetExecutingAssembly());
-            Main.settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
+            settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
             modEntry.OnGUI = new Action<UnityModManager.ModEntry>(Main.OnGUI);
             modEntry.OnToggle = new Func<UnityModManager.ModEntry, bool, bool>(Main.OnToggle);
             modEntry.OnSaveGUI = new Action<UnityModManager.ModEntry>(Main.OnSaveGUI);
@@ -32,6 +32,6 @@ namespace AlterAsc.CombatRelief
             Main.settings.PreventCorruption = GUILayout.Toggle(Main.settings.PreventCorruption, "Prevent increasing Corruption.");
         }
 
-        private static void OnSaveGUI(UnityModManager.ModEntry modEntry) => ((UnityModManager.ModSettings)Main.settings).Save(modEntry);
+        private static void OnSaveGUI(UnityModManager.ModEntry modEntry) => settings.Save(modEntry);
     }
 }
