@@ -1,5 +1,7 @@
 # Combat Relief -- Crusade and Random Encounters
 
+# [DIRECT DOWNLOAD LINK](https://github.com/alterasc/CombatRelief/releases/download/1.3.1/CombatRelief-1.3.1.zip)
+
 My continuation of [Combat Relief -- Crusade and Random Encounters](https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/40)
 
 Original mod was decompiled and result was a bit updated.
