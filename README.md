@@ -42,3 +42,7 @@ Settings affect game immediately, no restart is required.
 ## Credits
 
 BtB/streikeferret - original Combat Relief mod creator
+
+Permission from him:
+
+> Anyone who wants to continue this mod is free to reverse engineer my existing DLLs.
