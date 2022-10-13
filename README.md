@@ -14,7 +14,7 @@ But if you don't want to, here are the links for manual download (**Install only
 
 - ### Old version without ModMenu dependency   
 In case you don't want to install ModMenu. It has all the same functions, just no fancy UI or per-save settings.    
-[**LINK**]((https://github.com/alterasc/CombatRelief/releases/download/1.3.1/CombatRelief-1.3.1.zip))
+[**LINK**](https://github.com/alterasc/CombatRelief/releases/download/1.3.1/CombatRelief-1.3.1.zip)
 
 ## How to install:
 
