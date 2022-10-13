@@ -9,6 +9,6 @@
   "ManagerVersion": "0.23.0",
   "Repository": "https://raw.githubusercontent.com/alterasc/CombatRelief/main/Repository.json",
   "Requirements": [ "ModMenu-1.2.5" ],
-  "LoadAfter": [],
+  "LoadAfter": [ "MewsiferConsole.Mod" ],
   "Version": "2.0.0"
 }
