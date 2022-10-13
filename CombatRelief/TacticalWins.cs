@@ -8,6 +8,7 @@ namespace AlterAsc.CombatRelief
     [HarmonyPatch(typeof(TacticalCombatResultsPrediction), "GetAttackerLossesPercent")]
     internal static class TacticalWins
     {
+        [HarmonyPostfix]
         private static void Postfix(
           ref float __result,
           GlobalMapArmyState attacker,
@@ -16,7 +17,7 @@ namespace AlterAsc.CombatRelief
           ref int attackerExp,
           ref int defenderExp)
         {
-            if (!Main.settings.NoCrusaderCombat)
+            if (!Main.Settings.CrusadersArmyAlwaysWin)
                 return;
             float num;
             if (attacker.Data.Faction == ArmyFaction.Crusaders)

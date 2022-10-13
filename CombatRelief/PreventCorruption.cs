@@ -3,21 +3,22 @@ using Kingmaker.Corruption;
 
 namespace AlterAsc.CombatRelief
 {
-  [HarmonyPatch(typeof (CorruptionManager), "IncreaseValue")]
-  internal static class PreventCorruption
-  {
-    private static bool Prefix()
+    [HarmonyPatch(typeof(CorruptionManager), nameof(CorruptionManager.IncreaseValue))]
+    internal static class PreventCorruption
     {
-      if (!Main.settings.PreventCorruption)
-        return true;
-      try
-      {
-        return false;
-      }
-      catch
-      {
-      }
-      return true;
+        [HarmonyPrefix]
+        private static bool Prefix()
+        {
+            if (!Main.Settings.PreventCorruption)
+                return true;
+            try
+            {
+                return false;
+            }
+            catch
+            {
+            }
+            return true;
+        }
     }
-  }
 }

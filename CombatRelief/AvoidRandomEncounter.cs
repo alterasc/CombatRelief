@@ -4,20 +4,21 @@ using Kingmaker.RandomEncounters;
 
 namespace AlterAsc.CombatRelief
 {
-  [HarmonyPatch(typeof (RandomEncountersController), "GetAvoidanceCheckResult")]
-  internal static class AvoidRandomEncounter
-  {
-    private static void Postfix(ref RandomEncounterAvoidanceCheckResult __result)
+    [HarmonyPatch(typeof(RandomEncountersController), nameof(RandomEncountersController.GetAvoidanceCheckResult))]
+    internal static class AvoidRandomEncounter
     {
-      if (!Main.settings.AvoidRandom)
-        return;
-      try
-      {
-        __result = RandomEncounterAvoidanceCheckResult.Success;
-      }
-      catch
-      {
-      }
+        [HarmonyPostfix]
+        private static void Postfix(ref RandomEncounterAvoidanceCheckResult __result)
+        {
+            if (!Main.Settings.AvoidRandom)
+                return;
+            try
+            {
+                __result = RandomEncounterAvoidanceCheckResult.Success;
+            }
+            catch
+            {
+            }
+        }
     }
-  }
 }
