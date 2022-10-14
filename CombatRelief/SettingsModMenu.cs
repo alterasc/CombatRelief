@@ -1,5 +1,8 @@
-﻿using Kingmaker.Localization;
+﻿using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Localization;
 using ModMenu.Settings;
+using System;
+using System.Collections.Generic;
 
 namespace AlterAsc.CombatRelief
 {
@@ -13,8 +16,35 @@ namespace AlterAsc.CombatRelief
 
         public bool PreventCorruption => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("prevent-corruption"));
 
+        public bool ModifySkillRolls => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("modify-skill-rolls"));
+        public bool OnlyOutOfCombat => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("only-out-of-combat"));
+
+        public IDictionary<StatType, Func<int>> SkillMods = new Dictionary<StatType, Func<int>>()
+        {
+            {StatType.SkillAthletics, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("athletics")) },
+            {StatType.SkillMobility, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("mobility")) },
+            {StatType.SkillThievery, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("trickery")) },
+            {StatType.SkillStealth, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("stealth")) },
+            {StatType.SkillKnowledgeArcana, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("knowledgearcana")) },
+            {StatType.SkillKnowledgeWorld, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("knowledgeworld")) },
+            {StatType.SkillLoreNature, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("lorenature")) },
+            {StatType.SkillLoreReligion, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("lorereligion")) },
+            {StatType.SkillPerception, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("perception")) },
+            {StatType.SkillPersuasion, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("persuasion")) },
+            {StatType.CheckBluff, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("persuasion")) },
+            {StatType.CheckDiplomacy, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("persuasion")) },
+            {StatType.CheckIntimidate, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("persuasion")) },
+            {StatType.SkillUseMagicDevice, () => ModMenu.ModMenu.GetSettingValue<int>(GetKey("usemagicdevice")) }
+        };
         internal void Initialize()
         {
+            List<LocalizedString> skillRollChoices = new()
+            {
+                CreateString("mm-skillrollmod-1", "Roll normally"),
+                CreateString("mm-skillrollmod-2", "Take 10"),
+                CreateString("mm-skillrollmod-3", "Take 20"),
+            };
+
             ModMenu.ModMenu.AddSettings(
               SettingsBuilder
                 .New(GetKey("title"), CreateString("alterasc.combatrelief.title-name", "Combat Relief"))
@@ -38,6 +68,111 @@ namespace AlterAsc.CombatRelief
                     .WithLongDescription(CreateString("mm-prevent-corruption-desc", "When enabled corruption is not gained during rest."))
                     .DependsOnSave()
                 )
+                .AddToggle(
+                  Toggle
+                    .New(GetKey("modify-skill-rolls"), defaultValue: true, CreateString("mm-modify-skill-rolls", "Enable skill rolls modification"))
+                    .WithLongDescription(CreateString("mm-modify-skill-rolls-desc", "When enabled allows modification of skill rolls."))
+                    .DependsOnSave()
+                )
+                .AddSubHeader(
+                       CreateString("mm-skill-settings", "Skill roll mod settings"), false
+                )
+                    .AddToggle(
+                      Toggle
+                        .New(GetKey("only-out-of-combat"), defaultValue: true, CreateString("mm-only-out-of-combat", "Modify only out-of-combat rolls"))
+                        .WithLongDescription(CreateString("mm-modify-skill-rolls-desc", "When enabled allows modification only of skill rolls made out of combat."))
+                        .DependsOnSave()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("athletics"),
+                            defaultSelected: 1,
+                            CreateString("mm-athletics-rollmod", "Athletics"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("mobility"),
+                            defaultSelected: 1,
+                            CreateString("mm-mobility-rollmod", "Mobility"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("trickery"),
+                            defaultSelected: 2,
+                            CreateString("mm-trickery-rollmod", "Trickery"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("stealth"),
+                            defaultSelected: 0,
+                            CreateString("mm-stealth-rollmod", "Stealth"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("knowledgearcana"),
+                            defaultSelected: 1,
+                            CreateString("mm-knowledgearcana-rollmod", "Knowledge (Arcana)"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("knowledgeworld"),
+                            defaultSelected: 1,
+                            CreateString("mm-knowledgeworld-rollmod", "Knowledge (World)"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("lorenature"),
+                            defaultSelected: 1,
+                            CreateString("mm-lorenature-rollmod", "Lore (Nature)"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("lorereligion"),
+                            defaultSelected: 1,
+                            CreateString("mm-lorereligion-rollmod", "Lore (Religion)"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("perception"),
+                            defaultSelected: 2,
+                            CreateString("mm-perception-rollmod", "Perception"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("persuasion"),
+                            defaultSelected: 1,
+                            CreateString("mm-persuasion-rollmod", "Persuasion"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                        .WithLongDescription(CreateString("mm-persuasion-rollmod-desc", "Affects things such as Demoralize and Dazzling Display, since they are skill checks too. " +
+                        "Use with caution if you enable in-combat-rolls"))
+                    )
+                    .AddDropdownList(
+                        DropdownList.New(
+                            GetKey("usemagicdevice"),
+                            defaultSelected: 1,
+                            CreateString("mm-usemagicdevice-rollmod", "Use Magic Device"),
+                            skillRollChoices)
+                        .ShowVisualConnection()
+                    )
             );
         }
 

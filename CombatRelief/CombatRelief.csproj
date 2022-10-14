@@ -159,6 +159,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="PreventCorruption.cs" />
     <Compile Include="SettingsModMenu.cs" />
+    <Compile Include="SkillRolls.cs" />
     <Compile Include="TacticalWins.cs" />
   </ItemGroup>
   <ItemGroup>
