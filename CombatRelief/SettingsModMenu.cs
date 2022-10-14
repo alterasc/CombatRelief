@@ -70,7 +70,7 @@ namespace AlterAsc.CombatRelief
                 )
                 .AddToggle(
                   Toggle
-                    .New(GetKey("modify-skill-rolls"), defaultValue: true, CreateString("mm-modify-skill-rolls", "Enable skill rolls modification"))
+                    .New(GetKey("modify-skill-rolls"), defaultValue: false, CreateString("mm-modify-skill-rolls", "Enable skill rolls modification"))
                     .WithLongDescription(CreateString("mm-modify-skill-rolls-desc", "When enabled allows modification of skill rolls."))
                     .DependsOnSave()
                 )
