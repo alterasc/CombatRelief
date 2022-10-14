@@ -11,7 +11,7 @@ But if you don't want to, here are the links for manual download (**Install only
 [**LINK**](https://github.com/alterasc/CombatRelief/releases/latest)
 
 - ### Old version without ModMenu dependency   
-In case you don't want to install ModMenu. It has all the same functions, just no fancy UI or per-save settings.    
+In case you don't want to install ModMenu. Less functions, but deals with crusade the same.    
 [**LINK**](https://github.com/alterasc/CombatRelief/releases/download/1.3.1/CombatRelief-1.3.1.zip)
 
 ## How to install:
@@ -31,6 +31,11 @@ Makes your party always avoid random encounters. Story encounters during travel 
 
 - ### Prevent Corruption  
 When enabled corruption is not gained during rest.
+
+- ### Skill roll modification (only 2.1.0+)
+Allows to set on each skill if you want to roll normally/take 10/take 20.  
+Can be set to work out of combat only.
+Disabled by default.
 
 ## Settings
 
