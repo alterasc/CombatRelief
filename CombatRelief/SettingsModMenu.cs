@@ -90,6 +90,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-athletics-rollmod", "Athletics"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -98,6 +99,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-mobility-rollmod", "Mobility"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -106,6 +108,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-trickery-rollmod", "Trickery"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -114,6 +117,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-stealth-rollmod", "Stealth"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -122,6 +126,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-knowledgearcana-rollmod", "Knowledge (Arcana)"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -130,6 +135,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-knowledgeworld-rollmod", "Knowledge (World)"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -138,6 +144,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-lorenature-rollmod", "Lore (Nature)"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -146,6 +153,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-lorereligion-rollmod", "Lore (Religion)"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -154,6 +162,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-perception-rollmod", "Perception"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -164,6 +173,7 @@ namespace AlterAsc.CombatRelief
                         .ShowVisualConnection()
                         .WithLongDescription(CreateString("mm-persuasion-rollmod-desc", "Affects things such as Demoralize and Dazzling Display, since they are skill checks too. " +
                         "Use with caution if you enable in-combat-rolls"))
+                        .DependsOnSave()
                     )
                     .AddDropdownList(
                         DropdownList.New(
@@ -172,6 +182,7 @@ namespace AlterAsc.CombatRelief
                             CreateString("mm-usemagicdevice-rollmod", "Use Magic Device"),
                             skillRollChoices)
                         .ShowVisualConnection()
+                        .DependsOnSave()
                     )
             );
         }
