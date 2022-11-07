@@ -1,4 +1,5 @@
-﻿using Kingmaker.EntitySystem.Stats;
+﻿using CombatRelief.Base;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using ModMenu.Settings;
 using System;
@@ -184,6 +185,15 @@ namespace AlterAsc.CombatRelief
                         .ShowVisualConnection()
                         .DependsOnSave()
                     )
+                .AddSubHeader(
+                       CreateString("mm-tool-buttons", "Tricks"), true
+                )
+                .AddButton(
+                    Button
+                    .New(CreateString("skeletrader-tp", "Teleport to skeleton trader"), CreateString("", "Teleport"), () => Tricks.TryTeleportToSkeletonTrader())
+                    .WithLongDescription(CreateString("skeletrader-tp-desc", "Teleports to skeleton trader. Works only in Main campaign. " +
+                    "Does NOT check where you are before teleporting. Does NOT allow returning. If you break your game by teleporting out of Act 4 or quest locked area - it's on you to reload or teleport back via ToyBox."))
+                  )
             );
         }
 

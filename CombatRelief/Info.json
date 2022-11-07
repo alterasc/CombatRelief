@@ -10,5 +10,5 @@
   "Repository": "https://raw.githubusercontent.com/alterasc/CombatRelief/main/Repository.json",
   "Requirements": [ "ModMenu-1.2.5" ],
   "LoadAfter": [ "MewsiferConsole.Mod" ],
-  "Version": "2.1.0"
+  "Version": "2.2.0"
 }
