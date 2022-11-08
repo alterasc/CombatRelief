@@ -32,10 +32,15 @@ Makes your party always avoid random encounters. Story encounters during travel 
 - ### Prevent Corruption  
 When enabled corruption is not gained during rest.
 
-- ### Skill roll modification (only 2.1.0+)
+- ### Skill roll modification (version 2.1.0+)
 Allows to set on each skill if you want to roll normally/take 10/take 20.  
 Can be set to work out of combat only.
 Disabled by default.
+
+- ### Teleport to skeleton mechant button (version 2.2.0+)
+Teleports you to skeleton merchant random encounter area.
+Has a check for game being main campaign, but other than that will teleport out of any situation and act. Don't use it to get there when you're not supposed to.   
+So to be safe use it only when you're on global map.
 
 ## Settings
 
