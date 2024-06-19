@@ -3,12 +3,12 @@
   "Author": "AlterAsc",
   "DisplayName": "Combat Relief",
   "EntryMethod": "AlterAsc.CombatRelief.Main.Load",
-  "GameVersion": "2.0.0",
+  "GameVersion": "2.3.1",
   "HomePage": "https://github.com/alterasc/CombatRelief/releases",
   "Id": "AlterAsc.CombatRelief",
-  "ManagerVersion": "0.23.0",
+  "ManagerVersion": "0.27.11",
   "Repository": "https://raw.githubusercontent.com/alterasc/CombatRelief/main/Repository.json",
-  "Requirements": [ "ModMenu-1.2.5" ],
+  "Requirements": [ "ModMenu-1.3.2" ],
   "LoadAfter": [ "MewsiferConsole.Mod" ],
-  "Version": "2.2.0"
+  "Version": "2.3.0"
 }
