@@ -11,6 +11,7 @@ internal class SettingsModMenu
     private static readonly string RootKey = "alterasc.combat-relief";
 
     public bool AvoidRandom => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("avoid-random"));
+    public bool FixRandomChecks => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("fix-random-checks"));
 
     public bool CrusadersArmyAlwaysWin => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("crusaders-army-always-win"));
 
@@ -60,6 +61,13 @@ internal class SettingsModMenu
                 .New(GetKey("avoid-random"), defaultValue: true, CreateString("mm-avoid-random", "Avoid random encounters"))
                 .WithLongDescription(CreateString("mm-avoid-random-desc", "Makes your party always avoid random encounters. " +
                 "Story encounters during travel are unaffected by the mod."))
+                .DependsOnSave()
+            )
+            .AddToggle(
+              Toggle
+                .New(GetKey("fix-random-checks"), defaultValue: true, CreateString("mm-fix-random-checks", "Fix stealth checks when camping stealth role is missing"))
+                .WithLongDescription(CreateString("mm-fix-random-checks-desc", "In base game if you don't have anyone at camping stealth role, game rolls simple D20 vs evade DC. And writes nothing to logs. " +
+                "With this enabled game will instead perform stealth check and write it to log."))
                 .DependsOnSave()
             )
             .AddToggle(

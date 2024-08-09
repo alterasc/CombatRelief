@@ -8,11 +8,15 @@ namespace AlterAsc.CombatRelief;
 internal static class Main
 {
     public static SettingsModMenu Settings;
+    public static UnityModManager.ModEntry ModEntry;
+    public static Harmony HarmonyInstance;
 
     private static bool Load(UnityModManager.ModEntry modEntry)
     {
         Settings = new SettingsModMenu();
-        new Harmony(modEntry.Info.Id).PatchAll(Assembly.GetExecutingAssembly());
+        ModEntry = modEntry;
+        HarmonyInstance = new Harmony(modEntry.Info.Id);
+        HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
         return true;
     }
 }
