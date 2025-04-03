@@ -7,7 +7,7 @@ My continuation of [Combat Relief -- Crusade and Random Encounters](https://www.
 I recommend using [Modfinder](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/releases) to download WotR mods. 
 
 But if you don't want to, here are the links for manual download (**Install only one, not both**):  
-- ### Latest version. Requires [ModMenu](https://github.com/WittleWolfie/ModMenu/releases).  
+- ### Latest version. Requires [ModMenu](https://github.com/CasDragon/ModMenu/releases).  
 [**LINK**](https://github.com/alterasc/CombatRelief/releases/latest)
 
 - ### Old version without ModMenu dependency   
